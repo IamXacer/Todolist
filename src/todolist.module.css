@@ -18,6 +18,9 @@
 .buttonContainer{
    padding-left: 2px;
 }
+.userMassage{
+   color: red;
+}
 /*.todoCardWrapper {
    text-align: right; !* Выравниваем содержимое по правому краю *!
 }*/
@@ -29,7 +32,15 @@
    padding-left: 14px; /* Убираем отступы внутри списка */
 }
 /* todolist.module.css */
-
+.error{
+   border: red 1.2px solid;
+}
+.errorMessage{
+   color: red;
+}
+.activeFilter{
+   background-color: aquamarine;
+}
 .todoButton {
    background-color: #4caf50;
    color: white;
