@@ -32,8 +32,24 @@ export const Todolist: React.FC<PropsType> =
         const [newTaskTitle, setnewTaskTitle] = useState('')
         const [error, setError] = useState<string | null>(null)
 
+        const removeTaskHandler = (taskId: string) => {
+            removeTask(taskId)
+        }
+        const NewArray: Array<JSX.Element> = tasks.map(task => {
+            const onchangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+                changeTaskStatus(task.id, e.currentTarget.checked)
+            }
+            return (
+                <li  key={task.id}>
+                    <button className={s.deleteButton}
+                            onClick={(e) => removeTaskHandler(task.id)}>X
+                    </button>
+                    <input type={'checkbox'} checked={task.isDone} onChange={onchangeHandler}/>
+                    <span>{task.title}</span>
+                </li>
 
-        const NewArray
+            )
+        })
 
         const tasksLists: JSX.Element = tasks.length ?
             <ul> {NewArray}</ul> :
@@ -63,7 +79,6 @@ export const Todolist: React.FC<PropsType> =
                 addTaskHandler()
             }
         }
-
         const isButtonDisabled = !newTaskTitle || newTaskTitle.length > 15
 
         const userMassage = newTaskTitle.length < 15 ? <span>Enter you title</span> :
@@ -73,16 +88,13 @@ export const Todolist: React.FC<PropsType> =
             <div className={s.todoCardWrapper}>
                 <div>
                     <h3>{title}</h3>
-                    <div><input className={error ? s.error : ''}
-                                onKeyDown={onKeyDownHandler}
-                                value={newTaskTitle}
-                                onChange={setnewTaskTitleHandler}/>
+                 <div> <input className={error ? s.error : ''}
+                              value={newTaskTitle}
+                              onChange={setnewTaskTitleHandler}
+                              onKeyDown={onKeyDownHandler}
 
-                        <button onClick={addTaskHandler}
-                                disabled={isButtonDisabled}>Add
-                        </button>
-                    </div>
-
+                 />
+                     <button onClick={addTaskHandler} disabled={isButtonDisabled}>ADd</button></div>
 
                     {error && <div className={s.errorMessage}>{error}</div>}
                     <div><span>{userMassage}</span></div>

@@ -10,6 +10,7 @@ function App() {
             {id: crypto.randomUUID(), title: "HTML-CSS", isDone: false},
             {id: crypto.randomUUID(), title: "React", isDone: true},
             {id: crypto.randomUUID(), title: "Js", isDone: false},
+            {id: crypto.randomUUID(), title: "Js", isDone: false},
             {id: crypto.randomUUID(), title: "Redux", isDone: false},
         ]
     )
