@@ -40,12 +40,17 @@ const filtredTask = (allTask:TaskType[],filterValue:FilterType) => {
 
    const filterTaskforRender = filtredTask (tasks,filter)
 
-    const changeTaskStatus = (taskId:string,isDone:boolean) => {
-      const status = tasks.find(t=>t.id === taskId)
+    const changeTaskStatus = (taskId:string,newIsDoneValue:boolean) => {
+        const updateStatus = tasks.map(t=>t.id === taskId
+            ? {...t,isDone:newIsDoneValue}:t
+
+        )
+        setTasks(updateStatus)
+      /*const status = tasks.find(t=>t.id === taskId)
         if(status){
             status.isDone = isDone
         }
-        setTasks([...tasks])
+        setTasks([...tasks])*/
     }
     return (
         <div className={s.backgroundIMG}>
@@ -55,6 +60,7 @@ const filtredTask = (allTask:TaskType[],filterValue:FilterType) => {
                           tasks={filterTaskforRender} removeTask={removeTask}
                           changeFilter={changeFilter}
                           changeTaskStatus={changeTaskStatus}
+                          filter={filter}
                 />
             </div>
         </div>)

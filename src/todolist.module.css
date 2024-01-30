@@ -60,3 +60,10 @@
    color: black;
    border: 3px solid #4c89af;
 }
+.task{
+   font-weight: bold;
+}
+.taskDone{
+   text-decoration: line-through;
+   opacity:0.5 ;
+}
