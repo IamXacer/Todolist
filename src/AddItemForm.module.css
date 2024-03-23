@@ -1,0 +1,8 @@
+.button {
+    background-color: aquamarine;
+   border-bottom-color: aqua;
+    border-radius: 2px;
+}
+.marginTop {
+    margin-left: 7px; /* Вы можете указать нужное вам значение отступа */
+}
